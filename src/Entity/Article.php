@@ -44,7 +44,7 @@ class Article
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $autor;
+    private $author;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -116,14 +116,14 @@ class Article
         return $this;
     }
 
-    public function getAutor(): ?string
+    public function getAuthor(): ?string
     {
-        return $this->autor;
+        return $this->author;
     }
 
-    public function setAutor(string $autor): self
+    public function setAuthor(string $author): self
     {
-        $this->autor = $autor;
+        $this->author = $author;
 
         return $this;
     }
