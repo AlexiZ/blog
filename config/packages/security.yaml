@@ -1,11 +1,24 @@
 security:
+    encoders:
+        App\Entity\User:
+            algorithm: auto
+        Symfony\Component\Security\Core\User\User: 'bcrypt'
+
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory: { memory: null }
+        # used to reload user from session & other features (e.g. switch_user)
+        backend_users:
+            memory:
+                users:
+                    alexiz: { password: '$argon2id$v=19$m=65536,t=4,p=1$b00zY29BZk9GbDdmU2VQUw$G71fJwWVhntjUk7RfoIoSoNU2ZQqe9FbDT7sG2eZc/I', roles: ['ROLE_ADMIN'] }
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
+        admin:
+            pattern: ^/admin
+            http_basic:
+                realm: Secured Area
         main:
             anonymous: true
 
@@ -18,5 +31,4 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/admin, roles: ROLE_ADMIN }
