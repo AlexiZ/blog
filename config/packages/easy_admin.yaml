@@ -11,16 +11,17 @@ easy_admin:
             list:
                 fields:
                     - { property: 'id', label: '#' }
+                    - { property: 'published', label: 'Publié ?' }
                     - { property: 'title', label: 'Titre' }
                     - { property: 'subtitle', label: 'Sous-titre' }
-                    - { property: 'image', label: 'Illustration', type: 'image' }
+                    - { property: 'image', label: 'Illustration', type: 'image', base_path: '/uploads/files' }
                     - { property: 'creationDate', label: 'Créé le' }
             form:
                 fields:
                     - title
                     - subtitle
-                    - content
-                    - image
                     - tags
+                    - { property: 'imageFile', type: 'vich_image' }
+                    - { property: 'content', type: 'code_editor', language: 'markdown' }
             search:
                 fields: ['title', 'subtitle', 'content']

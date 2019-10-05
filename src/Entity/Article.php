@@ -3,10 +3,12 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Csrf\TokenStorage\TokenStorageInterface;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
+ * @Vich\Uploadable
  */
 class Article
 {
@@ -43,9 +45,21 @@ class Article
     private $creationDate;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255)
+     * @var string
      */
     private $image;
+
+    /**
+     * @Vich\UploadableField(mapping="product_images", fileNameProperty="image")
+     * @var File
+     */
+    private $imageFile;
+
+    /**
+     * @ORM\Column(type="boolean", options={"default":"0"})
+     */
+    private $published = 0;
 
     public function __construct()
     {
@@ -117,14 +131,34 @@ class Article
         return $this;
     }
 
-    public function getImage(): ?string
+    public function setImageFile(File $image = null)
+    {
+        $this->imageFile = $image;
+    }
+
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+
+    public function getImage()
     {
         return $this->image;
     }
 
-    public function setImage(?string $image): self
+    public function getPublished(): bool
     {
-        $this->image = $image;
+        return $this->published;
+    }
+
+    public function setPublished(?bool $published): self
+    {
+        $this->published = $published;
 
         return $this;
     }
