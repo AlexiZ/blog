@@ -1845,7 +1845,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
   text-transform: uppercase;
   letter-spacing: 2px;
   line-height: 18px;
-  content: "Search";
+  content: "Rechercher";
   display: block;
   color: #000000;
   float: left;
@@ -1885,7 +1885,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 }
 
 .header__search-form::after {
-  content: "Press Enter to begin your search.";
+  content: "Appuyez sur entrée pour commencer votre recherche.";
   display: block;
   letter-spacing: 0.6px;
   font-size: 1.6rem;
@@ -2557,6 +2557,10 @@ body.search-is-visible {
   padding-top: 3rem;
 }
 
+.featured__slide.slick-current .entry::before {
+  border-radius: 10px;
+}
+
 .featured__slide .entry::before {
   display: block;
   content: "";
@@ -2570,6 +2574,10 @@ body.search-is-visible {
   opacity: .4;
   background-color: #000000;
   z-index: 1;
+}
+
+.featured__slide.slick-current .entry__background {
+  border-radius: 10px;
 }
 
 .featured__slide .entry__background {
@@ -2609,6 +2617,13 @@ body.search-is-visible {
   padding: 0 1.5rem;
 }
 
+.featured__slide h2 {
+  margin: -20px 0 40px 0;
+  color: #cecece;
+  font-style: italic;
+  font-weight: 500;
+}
+
 .featured__slide .entry__info {
   display: inline-block;
   position: relative;
@@ -2627,7 +2642,7 @@ body.search-is-visible {
 
 .featured__slide .entry__meta {
   list-style: none;
-  margin: 0 0 0 6rem;
+  margin: 0;
   padding: 0;
   font-family: "Nunito Sans", sans-serif;
   font-weight: 400;

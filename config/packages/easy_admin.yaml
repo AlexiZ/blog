@@ -9,19 +9,22 @@ easy_admin:
         Article:
             class: App\Entity\Article
             list:
+                actions:
+                    - { name: 'app_customadmin_front', type: 'route', icon: 'external-link', label: '' }
                 fields:
                     - { property: 'id', label: '#' }
                     - { property: 'published', label: 'Publié ?' }
                     - { property: 'title', label: 'Titre' }
-                    - { property: 'subtitle', label: 'Sous-titre' }
+                    - { property: 'slug', label: 'Slug' }
                     - { property: 'image', label: 'Illustration', type: 'image', base_path: '/uploads/files' }
                     - { property: 'creationDate', label: 'Créé le' }
             form:
                 fields:
                     - title
+                    - { property: 'slug', label: 'Slug', type_options: { disabled: true } }
                     - subtitle
                     - tags
                     - { property: 'imageFile', type: 'vich_image' }
-                    - { property: 'content', type: 'code_editor', language: 'markdown' }
+                    - { property: 'content', type: 'text_editor', language: 'markdown' }
             search:
                 fields: ['title', 'subtitle', 'content']
