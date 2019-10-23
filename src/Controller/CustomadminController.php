@@ -23,7 +23,7 @@ class CustomadminController extends AbstractController
         $id = $request->query->get('id');
         $article = $this->getDoctrine()->getRepository(Article::class)->find($id);
 
-        return $this->redirectToRoute('app_index_article', [
+        return $this->redirectToRoute('app_article_show', [
             'slug' => $article->getSlug(),
         ]);
     }

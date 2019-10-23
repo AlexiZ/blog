@@ -11,7 +11,7 @@ class TagController extends AbstractController
     /**
      * @Route("/tag/{tag}")
      */
-    public function tag(string $tag)
+    public function search(string $tag)
     {
         $articles = $this->getDoctrine()->getRepository(Article::class)->withTag($tag);
 
