@@ -19,28 +19,4 @@ class IndexController extends AbstractController
             'articles' => $articles,
         ]);
     }
-
-    /**
-     * @Route("/article/{slug}")
-     */
-    public function article(string $slug)
-    {
-        $article = $this->getDoctrine()->getRepository(Article::class)->findOneBySlug($slug);
-
-        return $this->render('Index/article.html.twig', [
-            'article' => $article,
-        ]);
-    }
-
-    /**
-     * @Route("/tag/{tag}")
-     */
-    public function tag(string $tag)
-    {
-        $articles = $this->getDoctrine()->getRepository(Article::class)->withTag($tag);
-
-        return $this->render('Index/search.html.twig', [
-            'articles' => $articles,
-        ]);
-    }
 }

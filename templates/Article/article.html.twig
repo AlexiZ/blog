@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section class="s-content s-content--top-padding s-content--narrow">
+
+        <article class="row entry format-standard">
+            <div class="entry__media col-full">
+                <div class="entry__post-thumb" style="text-align:center;">
+                    <img src="{{ asset('uploads/files/' ~ article.image) }}" alt="" style="max-height:60vh;">
+                </div>
+            </div>
+
+            <div class="entry__header col-full">
+                <h1 class="entry__header-title display-1">
+                    {{ article.title }}
+                </h1>
+                <ul class="entry__header-meta">
+                    <li class="date">{{ article.creationDate|date('d-m-Y') }}</li>
+                    <li class="byline">
+                        By
+                        <a href="javascript:void(0);">{{ article.author }}</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-full entry__main">
+                {{ article.content|raw }}
+            </div>
+        </article>
+
+        {% if siblings|default %}
+            <div class="s-content__entry-nav">
+                <div class="row s-content__nav">
+                    {% for sibling in siblings %}
+                        {% if sibling.creationDate < article.creationDate %}
+                            <div class="col-six s-content__prev">
+                                <a href="{{ path('app_article_article', {'slug': sibling.slug}) }}" rel="prev">
+                                    <span>Article précédent</span>
+
+                                    {{ sibling.title }}
+                                </a>
+                            </div>
+                        {% elseif sibling.creationDate > article.creationDate %}
+                            <div class="col-six s-content__next">
+                                <a href="{{ path('app_article_article', {'slug': sibling.slug}) }}" rel="next">
+                                    <span>Article suivant</span>
+
+                                    {{ sibling.title }}
+                                </a>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+    </section>
+{% endblock %}

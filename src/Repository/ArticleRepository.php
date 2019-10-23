@@ -43,4 +43,21 @@ class ArticleRepository extends ServiceEntityRepository
             ->getArrayResult()
         ;
     }
+
+    public function findSiblings($id)
+    {
+        return $this
+            ->createQueryBuilder('a')
+            ->select('partial a.{id, title, subtitle, tags, creationDate, image, slug}')
+            ->where('a.id = :min OR a.id = :max')
+            ->setParameters([
+                'min' => (int) $id - 1,
+                'max' => (int) $id + 1,
+            ])
+            ->addOrderBy('a.creationDate', 'DESC')
+            ->setMaxResults(2)
+            ->getQuery()
+            ->getArrayResult()
+        ;
+    }
 }
