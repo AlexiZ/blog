@@ -69,6 +69,11 @@ class Article
      */
     private $slug;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $author;
+
     public function __construct()
     {
         $this->setCreationDate(new \DateTime());
@@ -179,6 +184,18 @@ class Article
     public function setSlug(string $slug): self
     {
         $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function getAuthor(): string
+    {
+        return $this->author;
+    }
+
+    public function setAuthor($author): self
+    {
+        $this->author = $author;
 
         return $this;
     }

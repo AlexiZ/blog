@@ -14,17 +14,19 @@ easy_admin:
                 fields:
                     - { property: 'id', label: '#' }
                     - { property: 'published', label: 'Publié ?' }
+                    - { property: 'author', label: 'Auteur' }
                     - { property: 'title', label: 'Titre' }
                     - { property: 'slug', label: 'Slug' }
                     - { property: 'image', label: 'Illustration', type: 'image', base_path: '/uploads/files' }
                     - { property: 'creationDate', label: 'Créé le' }
             form:
                 fields:
-                    - title
+                    - { property: 'author', label: 'Auteur' }
+                    - { property: 'title', label: 'Titre' }
                     - { property: 'slug', label: 'Slug', type_options: { disabled: true } }
-                    - subtitle
+                    - { property: 'subtitle', label: 'Sous-titre' }
                     - tags
-                    - { property: 'imageFile', type: 'vich_image' }
-                    - { property: 'content', type: 'text_editor', language: 'markdown' }
+                    - { property: 'imageFile', label: 'Illustration', type: 'vich_image' }
+                    - { property: 'content', label: 'Contenu', type: 'text_editor', language: 'markdown' }
             search:
                 fields: ['title', 'subtitle', 'content']

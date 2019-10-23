@@ -15,11 +15,12 @@
                                         <span class="entry__category"><a href="{{ path('app_index_tag', {'tag': tagIndex}) }}">{{ tag }}</a></span>
                                     {% endfor %}
 
-                                    <h1><a href="{{ path('app_index_article', {'slug': articleIndex}) }}">{{ article.title }}</a></h1>
+                                    <h1><a href="{{ path('app_index_article', {'slug': article.slug}) }}">{{ article.title }}</a></h1>
                                     <h2>{{ article.subtitle }}</h2>
 
                                     <div class="entry__info">
                                         <ul class="entry__meta">
+                                            <li><a href="javascript:void(0);">{{ article.author }}</a></li>
                                             <li>{{ article.creationDate|date('d-m-Y') }}</li>
                                         </ul>
                                     </div>
