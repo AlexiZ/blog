@@ -1,4 +1,8 @@
 easy_admin:
+    design:
+        form_theme: # Both themes are for ckeditor integration
+            - "@EasyAdmin/form/bootstrap_4.html.twig"
+            - "@FOSCKEditor/Form/ckeditor_widget.html.twig"
     site_name: '<img src="/images/logo.png" />'
     formats:
         date:     'Y-m-d'
@@ -27,6 +31,6 @@ easy_admin:
                     - { property: 'subtitle', label: 'Sous-titre' }
                     - tags
                     - { property: 'imageFile', label: 'Illustration', type: 'vich_image' }
-                    - { property: 'content', label: 'Contenu', type: 'text_editor', language: 'markdown' }
+                    - { property: 'content', label: 'Contenu', type: 'fos_ckeditor' }
             search:
                 fields: ['title', 'subtitle', 'content']
