@@ -2,14 +2,9 @@
 
 {% block body %}
     <section class="s-content s-content--top-padding s-content--narrow">
+        <div class="entry__media col-full" style="background-image: url({{ asset('uploads/files/' ~ article.image) }})"></div>
 
         <article class="row entry format-standard">
-            <div class="entry__media col-full">
-                <div class="entry__post-thumb" style="text-align:center;">
-                    <img src="{{ asset('uploads/files/' ~ article.image) }}" alt="" style="max-height:60vh;">
-                </div>
-            </div>
-
             <div class="entry__header col-full">
                 <h1 class="entry__header-title display-1">
                     {{ article.title }}

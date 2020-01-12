@@ -2878,7 +2878,7 @@ body.search-is-visible {
 }
 
 .s-content--top-padding {
-  padding-top: 16.2rem;
+  padding-top: 8rem;
 }
 
 .s-content__header {
@@ -3524,7 +3524,8 @@ footer [class*="s-footer__"] > .row [class*="col-"]:last-child {
  * ------------------------------------------------------------------- */
 .entry__media {
   padding: 0;
-  margin-bottom: 7.2rem;
+  margin-bottom: 3.2rem;
+  height: 250px;
 }
 
 .entry__media img {
