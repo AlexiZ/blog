@@ -3,6 +3,7 @@ set :domain, 'home655277423.1and1-data.host'
 set :ssh_port, 22
 set :application, "blog"
 set :repo_url, "https://github.com/AlexiZ/#{fetch(:application)}.git"
+set :assets_path, %w{public}
 
 server fetch(:domain), user: 'u87073604', roles: %w{web app db}
 
