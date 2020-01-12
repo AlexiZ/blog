@@ -1,6 +1,3 @@
-set :application, 'blog'
-set :repo_url, "https://github.com/AlexiZ/#{fetch(:application)}.git"
-
 # Default branch is :master
 ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
