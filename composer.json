@@ -1,4 +1,5 @@
 {
+    "name": "alexiz/blog",
     "type": "project",
     "license": "MIT",
     "require": {
