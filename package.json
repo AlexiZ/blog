@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/AlexiZ/blog#readme",
   "dependencies": {
-    "jquery": "^3.4.1"
+    "jquery": "^3.5.0"
   },
   "devDependencies": {
     "grunt": "^1.0.4",
